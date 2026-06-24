@@ -4,7 +4,7 @@
 import Adw from 'gi://Adw';
 import Gtk from 'gi://Gtk';
 
-import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensionPreferences.js';
+import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 import { MARKETS } from './lib/markets.js';
 
