@@ -29,7 +29,7 @@ keys), and stays idle until something is about to happen.
 
 ## Supported GNOME versions
 
-GNOME Shell **45, 46, 47, 48** (ESM extensions; libadwaita preferences).
+GNOME Shell **50** (ESM extensions; libadwaita preferences).
 
 ## Install (from source)
 

@@ -18,7 +18,7 @@ the `market_clock` service, fully offline.
 ## Platform & stack
 | Concern | Choice |
 |---|---|
-| GNOME Shell | 45–48 (ESM modules) |
+| GNOME Shell | 50 (ESM modules) |
 | Language | GJS / GObject, ES modules |
 | Prefs | libadwaita (`Adw.PreferencesWindow`), no Shell imports |
 | Settings | GSettings schema |
