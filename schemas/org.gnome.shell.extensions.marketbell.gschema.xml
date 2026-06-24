@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.marketbell"
+          path="/org/gnome/shell/extensions/marketbell/">
+
+    <key name="watched-markets" type="as">
+      <default>['TOKYO', 'LONDON', 'NEW_YORK']</default>
+      <summary>Watched markets</summary>
+      <description>Market ids (from lib/markets.js) to track and notify about.</description>
+    </key>
+
+    <key name="notifications-enabled" type="b">
+      <default>true</default>
+      <summary>Enable notifications</summary>
+      <description>Master switch for all desktop notifications.</description>
+    </key>
+
+    <key name="notify-open" type="b">
+      <default>true</default>
+      <summary>Notify before the opening bell</summary>
+    </key>
+
+    <key name="notify-close" type="b">
+      <default>true</default>
+      <summary>Notify before the closing bell</summary>
+    </key>
+
+    <key name="lead-open-minutes" type="i">
+      <default>5</default>
+      <range min="0" max="240"/>
+      <summary>Lead time before open (minutes)</summary>
+    </key>
+
+    <key name="lead-close-minutes" type="i">
+      <default>5</default>
+      <range min="0" max="240"/>
+      <summary>Lead time before close (minutes)</summary>
+    </key>
+
+    <key name="last-fired" type="s">
+      <default>''</default>
+      <summary>Internal: fired-notification dedup state</summary>
+      <description>JSON map of event key to unix timestamp; pruned automatically.</description>
+    </key>
+
+  </schema>
+</schemalist>

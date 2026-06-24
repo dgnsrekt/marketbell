@@ -1,0 +1,10 @@
+{
+  "uuid": "marketbell@dgnsrekt.github.io",
+  "name": "MarketBell",
+  "description": "Panel indicator and desktop notifications for global stock-market opens, closes and trading sessions. Tracks 19 exchanges across the world, fully offline — no network, no API keys. Get an alert a configurable number of minutes before the opening or closing bell of any market you watch.",
+  "shell-version": ["45", "46", "47", "48"],
+  "url": "https://github.com/dgnsrekt/marketbell",
+  "settings-schema": "org.gnome.shell.extensions.marketbell",
+  "gettext-domain": "marketbell",
+  "version-name": "0.1.0"
+}
