@@ -16,9 +16,12 @@ keys), and stays idle until something is about to happen.
 
 ## Features
 
-- **Panel indicator** — clock icon + count of currently-open markets.
+- **Panel indicator** — clock icon + your **primary market's** next-bell
+  countdown (`NYSE closes 1h 12m` in green when open, `NYSE opens 6h` dimmed when
+  closed). Click the panel (or scroll) to cycle the primary through your watched
+  markets; right-click opens the popup.
 - **Popup** — live per-market status (`open · closes in 1h 12m` /
-  `closed · opens in 6h`), open markets highlighted.
+  `closed · opens in 6h`), open markets highlighted, primary marked with `●`.
 - **Opening / closing bell notifications** with independent per-event lead times.
 - **Holiday- and weekend-aware**, including the Gulf Friday–Saturday weekend
   (Dubai, Riyadh).

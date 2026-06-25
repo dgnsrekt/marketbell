@@ -3,6 +3,12 @@
   <schema id="org.gnome.shell.extensions.marketbell"
           path="/org/gnome/shell/extensions/marketbell/">
 
+    <key name="primary-market" type="s">
+      <default>'NEW_YORK'</default>
+      <summary>Primary market shown in the panel</summary>
+      <description>Market id whose next-bell countdown is shown in the top bar. Click the panel to cycle through watched markets.</description>
+    </key>
+
     <key name="watched-markets" type="as">
       <default>['TOKYO', 'LONDON', 'NEW_YORK']</default>
       <summary>Watched markets</summary>

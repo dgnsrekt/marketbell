@@ -3,7 +3,12 @@
     font-weight: bold;
 }
 
-/* Highlight markets that are currently open in the popup. */
+/* Open markets (popup rows + panel label when the primary is open). */
 .marketbell-open {
     color: #2ec27e; /* GNOME green */
+}
+
+/* Panel label when the primary market is closed (counting down to open). */
+.marketbell-closed {
+    color: #9a9996; /* GNOME dim grey */
 }
