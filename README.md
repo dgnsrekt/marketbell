@@ -9,6 +9,10 @@ It tracks **19 exchanges** across every major time zone, is fully **offline**
 (all timezone, weekend and holiday logic runs locally — no network, no API
 keys), and stays idle until something is about to happen.
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="MarketBell panel indicator and popup" width="320">
+</p>
+
 > MarketBell is the desktop-native sibling of the
 > [`market_clock`](https://github.com/dgnsrekt/market_clock) service: it reuses
 > the same market dataset and holiday calendars, but replaces the FastAPI +

@@ -20,7 +20,7 @@ function spinRow(settings, key, title, lower, upper) {
 
 export default class MarketBellPrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
-        const settings = this.getSettings();
+        const settings = window._settings = this.getSettings();
 
         // ---- Notifications page ----
         const notifyPage = new Adw.PreferencesPage({

@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR dgnsrekt
+# This file is distributed under the same license as the MarketBell package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MarketBell\n"
+"Report-Msgid-Bugs-To: run2dos@gmail.com\n"
+"POT-Creation-Date: 2026-06-26 08:44-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: prefs.js:27 lib/indicator.js:67
+msgid "Notifications"
+msgstr ""
+
+#: prefs.js:31
+msgid "General"
+msgstr ""
+
+#: prefs.js:33
+msgid "Enable notifications"
+msgstr ""
+
+#: prefs.js:33
+msgid "Master switch for all alerts"
+msgstr ""
+
+#: prefs.js:37
+msgid "Bells"
+msgstr ""
+
+#: prefs.js:38
+msgid "Alert a number of minutes before the bell rings"
+msgstr ""
+
+#: prefs.js:40
+msgid "Opening bell"
+msgstr ""
+
+#: prefs.js:41
+msgid "Lead time before open (minutes)"
+msgstr ""
+
+#: prefs.js:42
+msgid "Closing bell"
+msgstr ""
+
+#: prefs.js:43
+msgid "Lead time before close (minutes)"
+msgstr ""
+
+#: prefs.js:50
+msgid "Markets"
+msgstr ""
+
+#: prefs.js:53 prefs.js:74
+msgid "Primary market"
+msgstr ""
+
+#: prefs.js:58
+msgid "Watched markets"
+msgstr ""
+
+#: prefs.js:59
+msgid "Choose which exchanges to track and be notified about"
+msgstr ""
+
+#: prefs.js:75
+msgid "Shown in the panel; click the panel to cycle"
+msgstr ""
+
+#: lib/indicator.js:23
+#, javascript-format
+msgid "%s — closed"
+msgstr ""
+
+#: lib/indicator.js:27
+#, javascript-format
+msgid "%s — open · closes in %s"
+msgstr ""
+
+#: lib/indicator.js:28
+#, javascript-format
+msgid "%s — closed · opens in %s"
+msgstr ""
+
+#: lib/indicator.js:36
+msgid "closed"
+msgstr ""
+
+#: lib/indicator.js:38
+msgid "closes"
+msgstr ""
+
+#: lib/indicator.js:38
+msgid "opens"
+msgstr ""
+
+#: lib/indicator.js:72
+msgid "Preferences"
+msgstr ""
+
+#: lib/indicator.js:130
+msgid "No markets selected"
+msgstr ""
+
+#: lib/scheduler.js:77
+#, javascript-format
+msgid "%s — opening bell"
+msgstr ""
+
+#: lib/scheduler.js:78
+#, javascript-format
+msgid "%s opens in %s (%s local)"
+msgstr ""
+
+#: lib/scheduler.js:88
+#, javascript-format
+msgid "%s — closing bell"
+msgstr ""
+
+#: lib/scheduler.js:89
+#, javascript-format
+msgid "%s closes in %s (%s local)"
+msgstr ""
