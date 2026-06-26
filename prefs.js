@@ -50,6 +50,10 @@ export default class MarketBellPrefs extends ExtensionPreferences {
             title: _('Markets'),
             icon_name: 'preferences-system-time-symbolic',
         });
+        const primaryGroup = new Adw.PreferencesGroup({ title: _('Primary market') });
+        primaryGroup.add(this._primaryRow(settings));
+        marketsPage.add(primaryGroup);
+
         const group = new Adw.PreferencesGroup({
             title: _('Watched markets'),
             description: _('Choose which exchanges to track and be notified about'),
@@ -58,6 +62,23 @@ export default class MarketBellPrefs extends ExtensionPreferences {
             group.add(this._marketRow(settings, m));
         marketsPage.add(group);
         window.add(marketsPage);
+    }
+
+    _primaryRow(settings) {
+        const ids = MARKETS.map(m => m.id);
+        const model = new Gtk.StringList();
+        for (const m of MARKETS)
+            model.append(`${m.name} · ${m.exchange}`);
+
+        const row = new Adw.ComboRow({
+            title: _('Primary market'),
+            subtitle: _('Shown in the panel; click the panel to cycle'),
+            model,
+        });
+        row.set_selected(Math.max(0, ids.indexOf(settings.get_string('primary-market'))));
+        row.connect('notify::selected', () =>
+            settings.set_string('primary-market', ids[row.get_selected()]));
+        return row;
     }
 
     _boolRow(settings, key, title, subtitle) {
