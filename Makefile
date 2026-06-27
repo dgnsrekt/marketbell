@@ -16,7 +16,7 @@ schemas:
 potfile:
 	xgettext --from-code=UTF-8 --language=JavaScript \
 		--keyword=_ --keyword=gettext --package-name=MarketBell \
-		--copyright-holder="dgnsrekt" --msgid-bugs-address="run2dos@gmail.com" \
+		--copyright-holder="dgnsrekt" --msgid-bugs-address="dgnsrekt@pm.me" \
 		-o po/$(DOMAIN).pot extension.js prefs.js lib/*.js
 
 # Compile every po/<lang>.po into locale/<lang>/LC_MESSAGES/marketbell.mo
