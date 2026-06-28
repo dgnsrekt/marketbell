@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MarketBell\n"
 "Report-Msgid-Bugs-To: dgnsrekt@pm.me\n"
-"POT-Creation-Date: 2026-06-27 19:00-0500\n"
+"POT-Creation-Date: 2026-06-27 19:17-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: prefs.js:27 lib/indicator.js:170
+#: prefs.js:27 lib/indicator.js:209
 msgid "Notifications"
 msgstr ""
 
@@ -77,8 +77,8 @@ msgstr ""
 msgid "Shown in the panel; click the panel to cycle"
 msgstr ""
 
-#: lib/indicator.js:28 lib/indicator.js:89 lib/indicator.js:129
-#: lib/indicator.js:139
+#: lib/indicator.js:28 lib/indicator.js:89 lib/indicator.js:168
+#: lib/indicator.js:178
 msgid "closed"
 msgstr ""
 
@@ -101,36 +101,41 @@ msgstr ""
 msgid "opens %s %s"
 msgstr ""
 
-#: lib/indicator.js:102 lib/indicator.js:131
+#: lib/indicator.js:102 lib/indicator.js:170
 msgid "now"
 msgstr ""
 
-#: lib/indicator.js:113
+#: lib/indicator.js:139
 msgid "All markets closed"
 msgstr ""
 
-#: lib/indicator.js:115
+#: lib/indicator.js:141
 #, javascript-format
 msgid "opens in %s"
 msgstr ""
 
-#: lib/indicator.js:127
+#: lib/indicator.js:150
+#, javascript-format
+msgid "%s · open"
+msgstr ""
+
+#: lib/indicator.js:166
 msgid "open"
 msgstr ""
 
-#: lib/indicator.js:141
+#: lib/indicator.js:180
 msgid "closes"
 msgstr ""
 
-#: lib/indicator.js:141
+#: lib/indicator.js:180
 msgid "opens"
 msgstr ""
 
-#: lib/indicator.js:175
+#: lib/indicator.js:214
 msgid "Preferences"
 msgstr ""
 
-#: lib/indicator.js:237
+#: lib/indicator.js:276
 msgid "No markets selected"
 msgstr ""
 
