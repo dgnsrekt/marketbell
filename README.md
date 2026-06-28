@@ -1,5 +1,7 @@
 # MarketBell
 
+[![Holiday data freshness](https://github.com/dgnsrekt/marketbell/actions/workflows/holiday-freshness.yml/badge.svg)](https://github.com/dgnsrekt/marketbell/actions/workflows/holiday-freshness.yml)
+
 A GNOME Shell extension that rings the bell for global markets. It puts a small
 indicator in your top panel showing your **primary market's** next-bell
 countdown, opens a **session-timeline popup** for every watched exchange, and
