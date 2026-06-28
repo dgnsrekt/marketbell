@@ -1,7 +1,7 @@
 // Self-check for the non-trivial bit: UTC-midnight session wrapping.
-// Run: gjs -m lib/check.js
+// Run: gjs -m tools/check.js
 import GLib from 'gi://GLib';
-import { sessionSegments } from './marketclock.js';
+import { sessionSegments } from '../lib/marketclock.js';
 
 function assert(cond, msg) {
     if (!cond) {
