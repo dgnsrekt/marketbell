@@ -70,9 +70,9 @@ jobs:
             });
             core.info(`Opened reminder issue #${issue.data.number} for ${year}.`);
 
-  # Cross-checks the covered years' US (NYSE/NASDAQ) closures against Massive's
-  # live feed. Fails (red run + email) only on full-day drift; early-closes are
-  # logged for visibility. The step skips when no key is set (e.g. forks).
+  # Cross-checks the covered years' US (NYSE/NASDAQ) calendar against Massive's
+  # live feed — full-day closures and half-day early closes (by date and local
+  # time). Fails (red run + email) on any drift. Skips when no key is set (forks).
   # See tools/verify-holidays-api.mjs.
   api-verify:
     runs-on: ubuntu-latest
