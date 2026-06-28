@@ -57,7 +57,15 @@ and enable it:
 gnome-extensions enable marketbell@dgnsrekt.github.io
 ```
 
-Open settings with `gnome-extensions prefs marketbell@dgnsrekt.github.io`.
+Open settings with `gnome-extensions prefs marketbell@dgnsrekt.github.io` —
+choose your primary market, pick which of the 19 exchanges to watch, and set
+per-bell notification lead times.
+
+<p align="center">
+  <img src="docs/prefs-notifications.png" alt="Notifications preferences" width="330">
+  &nbsp;
+  <img src="docs/prefs-markets.png" alt="Markets preferences" width="330">
+</p>
 
 ## Packaging
 
