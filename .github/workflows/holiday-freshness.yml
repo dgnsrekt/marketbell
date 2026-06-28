@@ -69,3 +69,17 @@ jobs:
               body,
             });
             core.info(`Opened reminder issue #${issue.data.number} for ${year}.`);
+
+  # Cross-checks the covered years' US (NYSE/NASDAQ) closures against Massive's
+  # live feed. Fails (red run + email) only on full-day drift; early-closes are
+  # logged for visibility. The step skips when no key is set (e.g. forks).
+  # See tools/verify-holidays-api.mjs.
+  api-verify:
+    runs-on: ubuntu-latest
+    env:
+      MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Verify US holidays against Massive
+        if: env.MASSIVE_API_KEY != ''
+        run: node tools/verify-holidays-api.mjs --check
