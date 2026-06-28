@@ -125,6 +125,21 @@ workflow (`.github/workflows/holiday-freshness.yml`) runs
 
 See [`SPEC.md`](SPEC.md) for the full design.
 
+## Translations
+
+MarketBell is translation-ready (gettext, with a `po/marketbell.pot` template)
+but currently ships **English only**. Contributions from native speakers are
+very welcome — to add a language:
+
+```sh
+msginit -i po/marketbell.pot -o po/<lang>.po -l <lang>   # e.g. de, fr, es, pt_BR
+# translate the msgstr "" entries in po/<lang>.po, then:
+make install   # compiles po/*.po → locale/<lang>/LC_MESSAGES/marketbell.mo
+```
+
+Open a pull request with your `po/<lang>.po`. If you change UI strings in the
+code, regenerate the template first with `make potfile`.
+
 ## License
 
 GPL-2.0-or-later.
