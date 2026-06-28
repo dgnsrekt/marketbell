@@ -33,9 +33,13 @@ keys), and stays idle until something is about to happen.
   green open-session bar, and a shared amber **now-line** crosses every row so
   "who closes next" reads at a glance. When everything's shut, a day-cell banner
   counts down to the next opening bell. Country-code chips, primary marked `★`.
+  **Click any market row** to fire a test notification of its current state
+  (e.g. `NYSE opens in 4h 3m (09:30 local)`) — handy for confirming
+  notifications work; active whenever notifications are enabled.
 - **Opening / closing bell notifications** with independent per-event lead times.
-- **Holiday- and weekend-aware**, including the Gulf Friday–Saturday weekend
-  (Dubai, Riyadh).
+- **Holiday-, half-day- and weekend-aware** — full-day closures, **half-day
+  early closes** (e.g. NYSE the Friday after Thanksgiving and Christmas Eve close
+  at 13:00 ET), and the Gulf Friday–Saturday weekend (Dubai, Riyadh).
 - **No duplicate alerts** — each bell fires once per day and survives a Shell
   restart.
 - **Quick toggle** for notifications from the popup, full settings in a
@@ -86,7 +90,7 @@ marketbell/
 ├── schemas/             # GSettings schema
 └── lib/
     ├── markets.js       # the 19 markets (ported from market_clock/regions.py)
-    ├── holidays.js      # per-market 2026 holiday calendars (ISO YYYY-MM-DD)
+    ├── holidays.js      # per-market 2026 full-day closures + half-day early closes
     ├── marketclock.js   # pure, offline state engine (GLib time math)
     ├── scheduler.js     # single-timer plan/fire/re-arm loop
     ├── indicator.js     # panel button + popup
@@ -96,10 +100,12 @@ marketbell/
 ## Updating holidays
 
 `lib/holidays.js` lists each market's full-day closures as explicit
-`YYYY-MM-DD` dates. Because the year is part of every entry, the engine simply
-never matches dates from other years, so an out-of-date calendar can't mismatch
-by a year — but it **does** need refreshing: once a year has passed, those
-markets fall back to weekend-only logic.
+`YYYY-MM-DD` dates in `HOLIDAYS`, plus any **half-day early closes** in
+`EARLY_CLOSES` (per date, as a market-local `[hour, minute]` close time).
+Because the year is part of every entry, the engine simply never matches dates
+from other years, so an out-of-date calendar can't mismatch by a year — but it
+**does** need refreshing: once a year has passed, those markets fall back to
+weekend-only logic.
 
 Refresh annually from each exchange's official calendar. Note the two failure
 directions if you let it go stale: a **missing** real holiday makes the market
@@ -115,6 +121,15 @@ workflow (`.github/workflows/holiday-freshness.yml`) runs
 `lib/holidays.js` is missing the upcoming year, fails the run and opens a single
 `holiday-refresh` tracking issue. Run the same check locally with
 `make check-holidays`.
+
+The same workflow also cross-checks the **US** calendar (NYSE/NASDAQ) — both
+full-day closures and early-close times — against [Massive](https://massive.com)'s
+live market-holidays feed via
+[`tools/verify-holidays-api.mjs`](tools/verify-holidays-api.mjs), and fails on
+any drift. It's a dev/CI aid, not part of the extension (which stays fully
+offline); it only runs when a free `MASSIVE_API_KEY` secret is configured, and
+covers only US markets — the other 18 calendars remain hand-maintained. Run it
+locally with `node tools/verify-holidays-api.mjs` (key from env or a `.env`).
 
 ## Roadmap
 
