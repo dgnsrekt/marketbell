@@ -31,7 +31,7 @@
     background-color: rgba(255,255,255,.10); border-radius: 6px; padding: 3px 9px;
 }
 
-.marketbell-rowleft { width: 158px; spacing: 9px; }
+.marketbell-rowleft { width: 215px; spacing: 9px; }
 
 .marketbell-cc {
     width: 26px; height: 18px;
@@ -46,7 +46,7 @@
 .marketbell-st-open { color: #8ff0a4; font-family: monospace; font-size: 11px; }
 .marketbell-st-closed { color: #8a8a8a; font-family: monospace; font-size: 11px; }
 
-.marketbell-track { height: 20px; min-width: 200px; }
+.marketbell-track { height: 20px; min-width: 170px; }
 
 /* Closed-state rows */
 .marketbell-openat { color: #bdbdbd; font-family: monospace; font-size: 12px; }
