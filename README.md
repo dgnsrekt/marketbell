@@ -32,7 +32,7 @@ keys), and stays idle until something is about to happen.
 - **Session-timeline popup** — each watched market gets a 24-hour track with a
   green open-session bar, and a shared amber **now-line** crosses every row so
   "who closes next" reads at a glance. When everything's shut, a day-cell banner
-  counts down to the next opening bell. Country-code chips, primary marked `●`.
+  counts down to the next opening bell. Country-code chips, primary marked `★`.
 - **Opening / closing bell notifications** with independent per-event lead times.
 - **Holiday- and weekend-aware**, including the Gulf Friday–Saturday weekend
   (Dubai, Riyadh).

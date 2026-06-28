@@ -40,7 +40,9 @@
     background-color: rgba(255,255,255,.12); border-radius: 4px;
 }
 
-.marketbell-star { color: #57e389; font-size: 9px; padding-right: 4px; }
+/* Primary-market marker: a star (not a status dot) in neutral grey, so it
+   reads as "your pick" and never as green=open / grey=closed. */
+.marketbell-star { color: #c9c9c9; font-size: 11px; padding-right: 4px; }
 .marketbell-name { color: #dcdcdc; font-size: 13px; font-weight: bold; }
 .marketbell-tzt { color: #8a8a8a; font-family: monospace; font-size: 11px; }
 .marketbell-st-open { color: #8ff0a4; font-family: monospace; font-size: 11px; }
