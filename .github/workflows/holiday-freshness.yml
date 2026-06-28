@@ -1,0 +1,71 @@
+name: Holiday data freshness
+
+# Annual reminder to refresh lib/holidays.js. The check passes all year, then
+# starts failing each December for the upcoming year's missing calendars — at
+# which point this workflow fails (red run + email) AND opens one tracking
+# issue. See tools/check-holidays.mjs.
+#
+# Note: GitHub disables scheduled workflows after 60 days of repo inactivity;
+# any commit re-activates the schedule. The README annual-refresh note is the
+# human backstop.
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # every Monday 09:00 UTC
+  workflow_dispatch:        # manual run / testing
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check holiday freshness
+        id: check
+        run: node tools/check-holidays.mjs
+
+      - name: Open reminder issue
+        if: failure() && steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const year = '${{ steps.check.outputs.required_year }}';
+            const label = 'holiday-refresh';
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: label,
+            });
+            if (open.length) {
+              core.info(`Reminder issue already open (#${open[0].number}); not duplicating.`);
+              return;
+            }
+
+            const body = [
+              `\`lib/holidays.js\` has no closure dates for **${year}**.`,
+              '',
+              'Refresh each market\'s full-day closures from its official exchange /',
+              'government calendar (see the **Updating holidays** section of the README).',
+              '',
+              'Re-verify the Islamic-calendar dates close to each date — Dubai and',
+              'Riyadh, plus the Eid / Muharram entries for Singapore and Mumbai — as',
+              'they shift with moon sighting.',
+              '',
+              '_Opened automatically by the scheduled `Holiday data freshness` workflow.',
+              'It will not be duplicated while open; close it once the calendars are updated._',
+            ].join('\n');
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Refresh holiday calendars for ${year}`,
+              labels: [label],
+              body,
+            });
+            core.info(`Opened reminder issue #${issue.data.number} for ${year}.`);

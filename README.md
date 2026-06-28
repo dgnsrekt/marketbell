@@ -107,6 +107,13 @@ Riyadh) also shift with moon sighting and should be re-checked close to the date
 
 Current data: **2026**, sourced from official exchange calendars.
 
+You don't have to remember the deadline: a scheduled `Holiday data freshness`
+workflow (`.github/workflows/holiday-freshness.yml`) runs
+[`tools/check-holidays.mjs`](tools/check-holidays.mjs) and, each December that
+`lib/holidays.js` is missing the upcoming year, fails the run and opens a single
+`holiday-refresh` tracking issue. Run the same check locally with
+`make check-holidays`.
+
 ## Roadmap
 
 - Session-overlap alerts (e.g. London/New York peak-liquidity window).

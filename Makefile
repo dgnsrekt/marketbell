@@ -5,9 +5,13 @@ DOMAIN = marketbell
 PO_FILES = $(wildcard po/*.po)
 MO_FILES = $(patsubst po/%.po,locale/%/LC_MESSAGES/$(DOMAIN).mo,$(PO_FILES))
 
-.PHONY: all schemas potfile mo pack install uninstall enable disable lint clean
+.PHONY: all schemas potfile mo check-holidays pack install uninstall enable disable lint clean
 
 all: schemas mo
+
+# Annual holiday-data freshness check (also run by the scheduled GH workflow).
+check-holidays:
+	node tools/check-holidays.mjs
 
 schemas:
 	glib-compile-schemas schemas/
