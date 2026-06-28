@@ -22,7 +22,7 @@ jobs:
   freshness:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Check holiday freshness
         id: check
@@ -30,7 +30,7 @@ jobs:
 
       - name: Open reminder issue
         if: failure() && steps.check.outcome == 'failure'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const year = '${{ steps.check.outputs.required_year }}';
