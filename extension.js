@@ -23,7 +23,7 @@ export default class MarketBellExtension extends Extension {
         this._settings = this.getSettings();
         this._notifier = new Notifier(this._settings);
 
-        this._indicator = new MarketBellIndicator(this._settings, () => this.openPreferences());
+        this._indicator = new MarketBellIndicator(this._settings, () => this.openPreferences(), this._notifier);
         Main.panel.addToStatusArea(this.uuid, this._indicator);
 
         this._scheduler = new Scheduler(this._settings, this._notifier, () => this._indicator?.update());
