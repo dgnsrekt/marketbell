@@ -1,16 +1,19 @@
 # MarketBell
 
 A GNOME Shell extension that rings the bell for global markets. It puts a small
-indicator in your top panel showing how many of your watched exchanges are open
-right now, and sends a desktop notification a configurable number of minutes
-before each **opening** and **closing bell**.
+indicator in your top panel showing your **primary market's** next-bell
+countdown, opens a **session-timeline popup** for every watched exchange, and
+sends a desktop notification a configurable number of minutes before each
+**opening** and **closing bell**.
 
 It tracks **19 exchanges** across every major time zone, is fully **offline**
 (all timezone, weekend and holiday logic runs locally — no network, no API
 keys), and stays idle until something is about to happen.
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="MarketBell panel indicator and popup" width="320">
+  <img src="docs/screenshot.png" alt="Live session-timeline popup" height="520">
+  &nbsp;&nbsp;
+  <img src="docs/screenshot-weekend.png" alt="Weekend / all-closed state" height="520">
 </p>
 
 > MarketBell is the desktop-native sibling of the
@@ -24,8 +27,10 @@ keys), and stays idle until something is about to happen.
   countdown (`NYSE closes 1h 12m` in green when open, `NYSE opens 6h` dimmed when
   closed). Click the panel (or scroll) to cycle the primary through your watched
   markets; right-click opens the popup.
-- **Popup** — live per-market status (`open · closes in 1h 12m` /
-  `closed · opens in 6h`), open markets highlighted, primary marked with `●`.
+- **Session-timeline popup** — each watched market gets a 24-hour track with a
+  green open-session bar, and a shared amber **now-line** crosses every row so
+  "who closes next" reads at a glance. When everything's shut, a day-cell banner
+  counts down to the next opening bell. Country-code chips, primary marked `●`.
 - **Opening / closing bell notifications** with independent per-event lead times.
 - **Holiday- and weekend-aware**, including the Gulf Friday–Saturday weekend
   (Dubai, Riyadh).
