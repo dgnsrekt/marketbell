@@ -1,7 +1,7 @@
 // Self-check for the non-trivial bit: UTC-midnight session wrapping.
 // Run: gjs -m tools/check.js
 import GLib from 'gi://GLib';
-import { sessionSegments } from '../lib/marketclock.js';
+import { sessionSegments, marketState } from '../lib/marketclock.js';
 
 function assert(cond, msg) {
     if (!cond) {
@@ -25,5 +25,22 @@ assert(Math.abs(width - 0.25) < 1e-9, `wrap total width expected 0.25 (6h), got 
 const flat = sessionSegments({ ...base, tz: 'Etc/UTC', open: [9, 0], close: [17, 0] }, now);
 assert(flat.segments.length === 1, `flat expected 1 segment, got ${flat.segments.length}`);
 assert(Math.abs((flat.segments[0].end - flat.segments[0].start) - (8 / 24)) < 1e-9, 'flat width expected 8h');
+
+// Early-close override: a half-day trading date must close at the overridden
+// time, not market.close. 2026-11-27 (Fri after Thanksgiving) closes 13:00 ET.
+const ny = GLib.TimeZone.new_identifier('America/New_York');
+const usMkt = {
+    id: 'US', name: 'US', exchange: 'US', tz: 'America/New_York',
+    open: [9, 30], close: [16, 0], weekend: [6, 7], holidays: [],
+    earlyCloses: { '2026-11-27': [13, 0] },
+};
+const noon = GLib.DateTime.new(ny, 2026, 11, 27, 12, 0, 0);   // mid-session that day
+const early = marketState(usMkt, noon);
+assert(early && early.isOpen, 'early-close day should be a trading day, open at noon');
+assert(early.closeDt.get_hour() === 13, `early close expected 13:00 ET, got ${early.closeDt.get_hour()}`);
+
+// Same market on a normal day keeps the regular 16:00 close.
+const normal = marketState({ ...usMkt, earlyCloses: {} }, noon);
+assert(normal.closeDt.get_hour() === 16, `normal close expected 16:00 ET, got ${normal.closeDt.get_hour()}`);
 
 print('marketclock check: OK');
