@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MarketBell\n"
 "Report-Msgid-Bugs-To: dgnsrekt@pm.me\n"
-"POT-Creation-Date: 2026-06-27 19:17-0500\n"
+"POT-Creation-Date: 2026-06-29 11:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: prefs.js:27 lib/indicator.js:209
+#: prefs.js:27 lib/indicator.js:218
 msgid "Notifications"
 msgstr ""
 
@@ -77,84 +77,93 @@ msgstr ""
 msgid "Shown in the panel; click the panel to cycle"
 msgstr ""
 
-#: lib/indicator.js:28 lib/indicator.js:89 lib/indicator.js:168
-#: lib/indicator.js:178
+#: lib/indicator.js:29 lib/indicator.js:95 lib/indicator.js:174
+#: lib/indicator.js:186
 msgid "closed"
 msgstr ""
 
-#: lib/indicator.js:32
+#: lib/indicator.js:33
 #, javascript-format
 msgid "closes %s"
 msgstr ""
 
-#: lib/indicator.js:32
+#: lib/indicator.js:33
 #, javascript-format
 msgid "opens %s"
 msgstr ""
 
-#: lib/indicator.js:83
+#: lib/indicator.js:89
 msgid "holiday"
 msgstr ""
 
-#: lib/indicator.js:89
+#: lib/indicator.js:95
 #, javascript-format
 msgid "opens %s %s"
 msgstr ""
 
-#: lib/indicator.js:102 lib/indicator.js:170
+#: lib/indicator.js:108 lib/indicator.js:176
 msgid "now"
 msgstr ""
 
-#: lib/indicator.js:139
+#: lib/indicator.js:145
 msgid "All markets closed"
 msgstr ""
 
-#: lib/indicator.js:141
+#: lib/indicator.js:147
 #, javascript-format
 msgid "opens in %s"
 msgstr ""
 
-#: lib/indicator.js:150
+#: lib/indicator.js:156
 #, javascript-format
 msgid "%s · open"
 msgstr ""
 
-#: lib/indicator.js:166
+#: lib/indicator.js:172
 msgid "open"
 msgstr ""
 
-#: lib/indicator.js:180
+#: lib/indicator.js:178
+msgid "primary"
+msgstr ""
+
+#: lib/indicator.js:188
 msgid "closes"
 msgstr ""
 
-#: lib/indicator.js:180
+#: lib/indicator.js:188
 msgid "opens"
 msgstr ""
 
-#: lib/indicator.js:214
+#: lib/indicator.js:223
 msgid "Preferences"
 msgstr ""
 
-#: lib/indicator.js:276
-msgid "No markets selected"
-msgstr ""
-
-#: lib/scheduler.js:77
+#: lib/indicator.js:279
 #, javascript-format
-msgid "%s — opening bell"
+msgid "%s — market closed"
 msgstr ""
 
-#: lib/scheduler.js:78
+#: lib/indicator.js:280 lib/scheduler.js:90
+#, javascript-format
+msgid "%s closes in %s (%s local)"
+msgstr ""
+
+#: lib/indicator.js:280 lib/scheduler.js:79
 #, javascript-format
 msgid "%s opens in %s (%s local)"
 msgstr ""
 
-#: lib/scheduler.js:88
+#: lib/indicator.js:303
+msgid "No markets selected"
+msgstr ""
+
+#: lib/scheduler.js:78
 #, javascript-format
-msgid "%s — closing bell"
+msgid "%s — opening bell"
 msgstr ""
 
 #: lib/scheduler.js:89
 #, javascript-format
-msgid "%s closes in %s (%s local)"
+msgid "%s — closing bell"
 msgstr ""
