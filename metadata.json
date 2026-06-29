@@ -6,5 +6,5 @@
   "url": "https://github.com/dgnsrekt/marketbell",
   "settings-schema": "org.gnome.shell.extensions.marketbell",
   "gettext-domain": "marketbell",
-  "version-name": "0.1.1"
+  "version-name": "0.1.2"
 }

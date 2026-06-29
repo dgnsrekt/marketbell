@@ -29,18 +29,15 @@ export default class MarketBellExtension extends Extension {
         this._scheduler = new Scheduler(this._settings, this._notifier, () => this._indicator?.update());
         this._scheduler.start();
 
-        this._settingsChangedId = this._settings.connect('changed', (_s, key) => {
+        this._settings.connectObject('changed', (_s, key) => {
             if (RELEVANT_KEYS.has(key))
                 this._scheduler?.refresh();
             this._indicator?.update();
-        });
+        }, this);
     }
 
     disable() {
-        if (this._settingsChangedId) {
-            this._settings.disconnect(this._settingsChangedId);
-            this._settingsChangedId = 0;
-        }
+        this._settings.disconnectObject(this);
         this._scheduler?.stop();
         this._scheduler = null;
 
